@@ -1,0 +1,4 @@
+﻿User-agent: *
+Allow: /
+
+Sitemap: https://majster-servis.kyiv.ua/sitemap.xml

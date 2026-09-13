@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Часті запитання (FAQ) — Ремонт побутової техніки Київ | МАЙСТЕР-СЕРВІС</title>
+  <meta name="description"
+    content="Відповіді на поширені запитання про обслуговування побутової техніки у Києві: тарифи, виїзд майстра, терміни та оформлення акта виконаних робіт.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+
+  <!-- Шрифти Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Стилі -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+  <!-- Декоративна фірмова бренд-смуга угорі сторінки -->
+  <div class="brand-top-stripe" aria-hidden="true"></div>
+
+  <!-- Шапка сайту -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="header-logo-wrap" aria-label="Головна сторінка">
+          <img src="img/logo.png" alt="Сервісний центр" class="header-logo-img" width="160" height="38">
+          <div class="logo-tag-group">
+            <span class="logo-tag-title">СЕРВІС</span>
+            <span class="logo-tag-sub">КИЇВ ТА ОБЛАСТЬ</span>
+          </div>
+        </a>
+
+        <!-- Навігаційне меню -->
+        <nav class="header-nav" id="main-navigation" aria-label="Головна навігація">
+          <a href="services.html" class="nav-link">Послуги</a>
+          <a href="prices.html" class="nav-link">Вартість</a>
+          <a href="process.html" class="nav-link">Регламент робіт</a>
+          <a href="faq.html" class="nav-link active">Довідка & FAQ</a>
+          <a href="contacts.html" class="nav-link">Контакти</a>
+        </nav>
+
+        <!-- Контакти та дія -->
+        <div class="header-actions">
+          <div class="header-phone-box">
+            <span class="header-phone-label">Зв'язок із диспетчером:</span>
+            <a href="tel:#" class="header-phone-number">+38 (0XX) XXX-XX-XX</a>
+          </div>
+
+          <button type="button" class="btn btn-primary btn-sm" data-open-modal="call-master-modal">
+            <span>Викликати майстра</span>
+          </button>
+
+          <button type="button" class="mobile-nav-toggle" aria-expanded="false" aria-controls="main-navigation"
+            aria-label="Відкрити меню навігації">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Хлібні крихти та заголовок -->
+  <div class="container">
+    <nav class="breadcrumbs-nav" aria-label="Навігаційний ланцюжок">
+      <ol class="breadcrumbs-list">
+        <li class="breadcrumbs-item"><a href="index.html">Головна</a><span class="breadcrumbs-sep">/</span></li>
+        <li class="breadcrumbs-item active" aria-current="page">Довідка & FAQ</li>
+      </ol>
+    </nav>
+    <div class="page-header">
+      <span class="section-eyebrow">База знань та підтримка</span>
+      <h1 class="page-title">Часті запитання (FAQ)</h1>
+      <p class="lead-text" style="max-width: 820px;">
+        Зібрали вичерпні відповіді на найпоширеніші запитання замовників щодо виклику інженера, інструментальної дефектації, тарифів, гарантійних зобов'язань та обслуговування побутової техніки.
+      </p>
+
+      <!-- Швидкі навігаційні кнопки -->
+      <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 24px;">
+        <a href="#general" class="btn btn-outline btn-sm"><span class="inline-icon-wrap"><svg viewBox="0 0 24 24"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.5 2.8C2.1 11.2 2 11.6 2 12v4c0 .6.4 1 1 1h2"></path><circle cx="7" cy="17" r="2"></circle><path d="M9 17h6"></path><circle cx="17" cy="17" r="2"></circle></svg></span>Загальні та виїзд</a>
+        <a href="#pricing" class="btn btn-outline btn-sm"><span class="inline-icon-wrap"><svg viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="5" rx="2"></rect><line x1="2" x2="22" y1="10" y2="10"></line></svg></span>Вартість та оплата</a>
+        <a href="#warranty" class="btn btn-outline btn-sm"><span class="inline-icon-wrap"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></span>Гарантія та документи</a>
+        <a href="#parts" class="btn btn-outline btn-sm"><span class="inline-icon-wrap"><svg viewBox="0 0 24 24"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg></span>Запчастини та ремонт</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="container" style="padding-bottom: 64px;">
+    <div style="display: flex; flex-direction: column; gap: 48px;">
+
+      <!-- Категорія 1: Загальні -->
+      <section id="general" style="scroll-margin-top: 100px;">
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
+          <div class="contact-card-icon-wrap" style="margin-bottom: 0;" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.5 2.8C2.1 11.2 2 11.6 2 12v4c0 .6.4 1 1 1h2"></path><circle cx="7" cy="17" r="2"></circle><path d="M9 17h6"></path><circle cx="17" cy="17" r="2"></circle></svg></div>
+          <h2 style="font-size: 1.35rem; font-weight: 700; color: var(--color-brand-primary); margin: 0;">
+            Загальні питання та географія виїздів
+          </h2>
+        </div>
+
+        <div class="card" style="padding: 24px; border-radius: 16px; border: 1px solid var(--color-border); background: #fff; box-shadow: var(--shadow-sm);">
+          <div class="faq-list">
+            <div class="faq-item">
+              <button type="button" class="faq-question-btn" aria-expanded="false">
+                <span class="faq-question-text">У які райони Києва та області виїжджає інженер?</span>
+                <span class="faq-icon-indicator" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-answer-pane">
+                <div class="faq-answer-content">
+                  Ми обслуговуємо всі райони Києва: Шевченківський, Печерський, Подільський, Солом'янський, Святошинський, Голосіївський, Оболонський, Дарницький, Дніпровський та Деснянський. Також здійснюємо виїзди у передмістя до 30 км (Ірпінь, Буча, Бровари, Бориспіль, Вишневе, Вишгород, Крюківщина, Софіївська Борщагівка тощо).
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-question-btn" aria-expanded="false">
+                <span class="faq-question-text">Який графік роботи контакт-центру та майстрів?</span>
+                <span class="faq-icon-indicator" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-answer-pane">
+                <div class="faq-answer-content">
+                  Прийом онлайн-заявок через сайт діє цілодобово. Диспетчерська лінія на зв'язку: Пн–Сб з 08:30 до 20:00, Нд з 10:00 до 17:00 (черговий прийом дзвінків). Виїзди майстрів здійснюються у погоджений із замовником час.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-question-btn" aria-expanded="false">
+                <span class="faq-question-text">Як швидко майстер приїжджає після оформлення заявки?</span>
+                <span class="faq-icon-indicator" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-answer-pane">
+                <div class="faq-answer-content">
+                  Час візиту узгоджується індивідуально. За наявності вільного фахівця можливий виїзд у день звернення, або ви можете запланувати візит на будь-яку зручну дату наперед.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Категорія 2: Вартість -->
+      <section id="pricing" style="scroll-margin-top: 100px;">
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
+          <div class="contact-card-icon-wrap" style="margin-bottom: 0;" aria-hidden="true"><svg viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="5" rx="2"></rect><line x1="2" x2="22" y1="10" y2="10"></line></svg></div>
+          <h2 style="font-size: 1.35rem; font-weight: 700; color: var(--color-brand-primary); margin: 0;">
+            Вартість робіт та форми оплати
+          </h2>
+        </div>
+
+        <div class="card" style="padding: 24px; border-radius: 16px; border: 1px solid var(--color-border); background: #fff; box-shadow: var(--shadow-sm);">
+          <div class="faq-list">
+            <div class="faq-item">
+              <button type="button" class="faq-question-btn" aria-expanded="false">
+                <span class="faq-question-text">Скільки коштує виїзд інженера?</span>
+                <span class="faq-icon-indicator" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-answer-pane">
+                <div class="faq-answer-content">
+                  Виїзд інженера є окремою послугою та становить від 250 грн у межах міста Київ. При виїзді у передмістя тариф розраховується з урахуванням кілометражу від міської межі (від 400 грн).
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-question-btn" aria-expanded="false">
+                <span class="faq-question-text">Скільки коштує діагностика несправності?</span>
+                <span class="faq-icon-indicator" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-answer-pane">
+                <div class="faq-answer-content">
+                  Інструментальна дефектація вузла за допомогою вимірювальних приладів та сервісних програм коштує від 250 грн. Повна сума ремонту завжди оголошується майстром до старту будь-яких робіт.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-question-btn" aria-expanded="false">
+                <span class="faq-question-text">Чи може ціна змінитися в процесі ремонту?</span>
+                <span class="faq-icon-indicator" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-answer-pane">
+                <div class="faq-answer-content">
+                  Ні. Повна вартість робіт та запчастин розраховується та фіксується ДО початку відновлювальних дій. Ремонт починається виключно після вашої особистої згоди із затвердженим кошторисом.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-question-btn" aria-expanded="false">
+                <span class="faq-question-text">Які способи оплати доступні для клієнтів?</span>
+                <span class="faq-icon-indicator" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-answer-pane">
+                <div class="faq-answer-content">
+                  Оплата здійснюється за фактом повного виконання ремонту та успішного тестового запуску приладу. Доступна оплата готівкою, банківською карткою або безготівковим переказом на рахунок ФОП з видачею акта.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Категорія 3: Гарантія -->
+      <section id="warranty" style="scroll-margin-top: 100px;">
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
+          <div class="contact-card-icon-wrap" style="margin-bottom: 0;" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
+          <h2 style="font-size: 1.35rem; font-weight: 700; color: var(--color-brand-primary); margin: 0;">
+            Гарантійні зобов'язання та документи
+          </h2>
+        </div>
+
+        <div class="card" style="padding: 24px; border-radius: 16px; border: 1px solid var(--color-border); background: #fff; box-shadow: var(--shadow-sm);">
+          <div class="faq-list">
+            <div class="faq-item">
+              <button type="button" class="faq-question-btn" aria-expanded="false">
+                <span class="faq-question-text">Який термін гарантії надається на ремонт?</span>
+                <span class="faq-icon-indicator" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-answer-pane">
+                <div class="faq-answer-content">
+                  Гарантійний термін встановлюється майстром після виконання ремонту та фіксується у двосторонньому акті робіт залежно від характеру поломки та замінених комплектуючих.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-question-btn" aria-expanded="false">
+                <span class="faq-question-text">Який документ підтверджує гарантію?</span>
+                <span class="faq-icon-indicator" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-answer-pane">
+                <div class="faq-answer-content">
+                  Після завершення робіт майстер виписує двосторонній Акт виконаних робіт. У ньому зазначені модель техніки, перелік виконаних дій, перелік нових комплектуючих, сплачена сума та встановлений гарантійний термін.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-question-btn" aria-expanded="false">
+                <span class="faq-question-text">Що робити, якщо протягом гарантійного терміну виник повторний збій?</span>
+                <span class="faq-icon-indicator" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-answer-pane">
+                <div class="faq-answer-content">
+                  Зв'яжіться з диспетчером та повідомте номер акта робіт. Фахівець здійснить перевірку функціонування відремонтованого вузла за умовами, вказаними в акті.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Категорія 4: Запчастини -->
+      <section id="parts" style="scroll-margin-top: 100px;">
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
+          <div class="contact-card-icon-wrap" style="margin-bottom: 0;" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg></div>
+          <h2 style="font-size: 1.35rem; font-weight: 700; color: var(--color-brand-primary); margin: 0;">
+            Комплектуючі та процес відновлення
+          </h2>
+        </div>
+
+        <div class="card" style="padding: 24px; border-radius: 16px; border: 1px solid var(--color-border); background: #fff; box-shadow: var(--shadow-sm);">
+          <div class="faq-list">
+            <div class="faq-item">
+              <button type="button" class="faq-question-btn" aria-expanded="false">
+                <span class="faq-question-text">Які запчастини використовуються — оригінал чи аналоги?</span>
+                <span class="faq-icon-indicator" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-answer-pane">
+                <div class="faq-answer-content">
+                  Ми використовуємо оригінальні запасні частини або перевірені сумісні аналоги європейського виробництва. Майстер інформує про виробника комплектуючих до їх встановлення.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-question-btn" aria-expanded="false">
+                <span class="faq-question-text">Чи можна надати власну запасну частину для монтажу?</span>
+                <span class="faq-icon-indicator" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-answer-pane">
+                <div class="faq-answer-content">
+                  Так, майстер може встановити надану вами деталь за умови її повної сумісності з приладом. Гарантія в цьому випадку надається виключно на монтажні роботи.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-question-btn" aria-expanded="false">
+                <span class="faq-question-text">Чи потрібно транспортувати прилад до стаціонару?</span>
+                <span class="faq-icon-indicator" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-answer-pane">
+                <div class="faq-answer-content">
+                  Більшість ремонтів великої побутової техніки виконуються вдома без вивезення. Дрібну техніку (кавомашини, комбайни, пилососи) можна передати в майстерню за адресою бул. Вацлава Гавела, 16.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Блок консультації -->
+      <div class="card" style="padding: 36px; border-radius: 16px; background: var(--color-bg-subtle); border: 1px solid var(--color-border); text-align: center; display: flex; flex-direction: column; align-items: center; gap: 16px;">
+        <div class="contact-card-icon-wrap" style="margin-bottom: 0;" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path></svg></div>
+        <h2 style="font-size: 1.35rem; font-weight: 700; color: var(--color-brand-primary); margin: 0;">
+          Не знайшли відповіді на своє запитання?
+        </h2>
+        <p style="max-width: 600px; color: var(--color-text-muted); margin: 0; font-size: 0.95rem;">
+          Зв'яжіться з черговим спеціалістом телефоном або через месенджер для уточнення деталей щодо вашого приладу.
+        </p>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 8px;">
+          <a href="tel:#" class="btn btn-primary">
+            <span>Зателефонувати: +38 (0XX) XXX-XX-XX</span>
+          </a>
+          <a href="https://t.me/smeg_service_lead_bot" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+            <span>Telegram</span>
+          </a>
+          <a href="contacts.html" class="btn btn-outline">
+            <span>Контакти →</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Футер -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo-wrap">
+            <img src="img/logo.png" alt="Сервісний центр" class="footer-logo-img" width="140" height="30">
+            <span class="footer-logo-tag">СЕРВІС</span>
+          </div>
+          <p class="footer-brand-desc">
+            Спеціалізований незалежний сервісний центр із ремонту європейської великої та дрібної побутової техніки в Києві. Діагностика несправностей, якісні комплектуючі та дотримання регламенту безпеки.
+          </p>
+          <span class="badge badge-outline" style="font-size: 0.7rem;">НЕЗАЛЕЖНИЙ СЕРВІС КИЇВ</span>
+        </div>
+
+        <div>
+          <h4 class="footer-nav-title">Категорії послуг</h4>
+          <ul class="footer-nav-list">
+            <li><a href="services.html#pralni-mashyny" class="footer-nav-link">Пральні машини</a></li>
+            <li><a href="services.html#posudomiini-mashyny" class="footer-nav-link">Посудомийні машини</a></li>
+            <li><a href="services.html#duhovi-shafy" class="footer-nav-link">Духові шафи та поверхні</a></li>
+            <li><a href="services.html#kholodylnyky" class="footer-nav-link">Холодильники</a></li>
+            <li><a href="services.html#kavomashyny" class="footer-nav-link">Кавомашини</a></li>
+            <li><a href="services.html#pylososy" class="footer-nav-link">Пилососи</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-nav-title">Клієнтам</h4>
+          <ul class="footer-nav-list">
+            <li><a href="prices.html" class="footer-nav-link">Вартість робіт</a></li>
+            <li><a href="process.html" class="footer-nav-link">Регламент робіт</a></li>
+            <li><a href="faq.html" class="footer-nav-link">Часті запитання (FAQ)</a></li>
+            <li><a href="contacts.html" class="footer-nav-link">Контакти та зона виїздів</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-nav-title">Контакти сервісу</h4>
+          <div class="footer-contact-item">
+            <span class="footer-contact-label">Лінія зв'язку:</span>
+            <a href="tel:#" class="footer-phone-val">+38 (0XX) XXX-XX-XX</a>
+          </div>
+          <div class="footer-contact-item">
+            <span class="footer-contact-label">Адреса майстерні:</span>
+            <span class="footer-address-val">м. Київ, бульвар Вацлава Гавела, 16</span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="footer-contact-label">Графік прийому:</span>
+            <span class="footer-hours-val">Пн–Сб: 08:30 – 20:00 | Нд: 10:00 – 17:00 (черговий режим)</span>
+          </div>
+          <div style="margin-top: 18px;">
+            <button type="button" class="btn btn-primary btn-sm" style="width: 100%;" data-open-modal="call-master-modal">
+              <span>Викликати майстра</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom-strip">
+        <p class="footer-disclaimer-text">
+          <strong>ЮРИДИЧНЕ ЗАСТЕРЕЖЕННЯ:</strong> Цей веб-сайт належить незалежному спеціалізованому сервісному центру побутової техніки. Ми <u>не є</u> офіційним представництвом, авторизованим сервісним центром або філією виробників побутової техніки. Усі торговельні марки, логотипи та комерційні найменування згадуються виключно з метою інформування споживачів про сумісність сервісних послуг.
+        </p>
+        <p class="footer-copy-text">
+          © 2026 Спеціалізований сервісний центр побутової техніки. Усі права захищено.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Модальне вікно -->
+  <div class="modal-backdrop" id="call-master-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-window">
+      <button type="button" class="modal-close-btn" data-close-modal aria-label="Закрити вікно">&times;</button>
+      <div class="modal-header">
+        <span class="modal-badge">ЗАПИС НА ВІЗИТ МАЙСТРА</span>
+        <h3 class="modal-title" id="modal-title">Оформлення заявки на ремонт</h3>
+        <p class="modal-sub">Черговий спеціаліст зв'яжеться з вами для уточнення деталей та погодження часу.</p>
+      </div>
+
+      <form class="ajax-repair-form" data-form-source="Модальне вікно (FAQ)">
+        <input type="text" name="website_hp" class="hp-input" tabindex="-1" autocomplete="off">
+        <div class="status-toast" style="display: none;"></div>
+
+        <div class="form-group">
+          <label for="modal-name" class="form-label">Ваше ім'я:</label>
+          <input type="text" id="modal-name" name="name" class="form-input" placeholder="Наприклад: Олексій" required>
+        </div>
+
+        <div class="form-group">
+          <label for="modal-phone" class="form-label">Номер телефону:</label>
+          <input type="tel" id="modal-phone" name="phone" class="form-input" placeholder="+38 (0__) ___-__-__" required>
+        </div>
+
+        <div class="form-group">
+          <label for="modal-device" class="form-label">Категорія приладу:</label>
+          <select id="modal-device" name="device" class="form-select">
+            <option value="Пральна машина">Пральна машина</option>
+            <option value="Посудомийна машина">Посудомийна машина</option>
+            <option value="Духова шафа / Варильна поверхня">Духова шафа / Варильна поверхня</option>
+            <option value="Холодильник">Холодильник</option>
+            <option value="Кавомашина">Кавомашина</option>
+            <option value="Пилосос">Пилосос</option>
+            <option value="Кухонний комбайн">Кухонний комбайн</option>
+            <option value="Інша техніка">Інша техніка</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="modal-message" class="form-label">Опис несправності (необов'язково):</label>
+          <input type="text" id="modal-message" name="message" class="form-input" placeholder="Не вмикається, протікає, код помилки">
+        </div>
+
+        <div class="form-submit-row">
+          <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+            <span>Підтвердити виклик</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Плаваючий віджет зв'язку -->
+  <div class="sticky-chat-widget">
+    <div class="chat-popup-menu" role="menu">
+      <div class="chat-popup-header">
+        <span class="chat-status-dot"></span>
+        <span>Черговий інженер онлайн</span>
+      </div>
+      <a href="https://t.me/smeg_service_lead_bot" target="_blank" rel="noopener noreferrer" class="chat-channel-link">
+        <span>Telegram</span>
+      </a>
+      <a href="#" class="chat-channel-link">
+        <span>Viber</span>
+      </a>
+      <a href="tel:#" class="chat-channel-link">
+        <span>+38 (0XX) XXX-XX-XX</span>
+      </a>
+    </div>
+    <button type="button" class="chat-toggle-btn" aria-label="Відкрити зв'язок">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Скрипти сайту -->
+  <script src="js/config.js"></script>
+  <script src="js/telegram.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
