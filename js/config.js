@@ -27,8 +27,8 @@ window.SITE_CONFIG = {
     statusText: "Прийом викликів: на зв'язку щодня"
   },
   telegram: {
-    botToken: "8903060860:AAFKSB4OSIJMmKnf8FlRlCOZUdu8_4xc_Cs",
-    chatId: "-5342810428" // Перевірена тестова група
+    botToken: "8768247342:AAHJcR4m_z7AjmJdKoW0IbVCc7cL4mLPlxo",
+    chatId: "-5310506440" // Перевірена тестова група
   },
   pricing: {
     diagnosticsHome: 250, // Інструментальна діагностика від 250 грн
