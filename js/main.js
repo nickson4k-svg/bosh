@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCategoryTabs();
   initFaqAccordion();
   initStickyChatWidget();
+  initScrollTopButton();
   initModals();
   initForms();
   initSmoothScroll();
@@ -130,6 +131,45 @@ function initStickyChatWidget() {
     if (!widget.contains(e.target)) {
       popupMenu.classList.remove('active');
     }
+  });
+}
+
+/* --------------------------------------------------------------------------
+   4.1 Кнопка швидкого скролу вгору (над плаваючим чатом)
+   -------------------------------------------------------------------------- */
+function initScrollTopButton() {
+  let scrollBtn = document.querySelector('.scroll-top-btn');
+  if (!scrollBtn) {
+    scrollBtn = document.createElement('button');
+    scrollBtn.type = 'button';
+    scrollBtn.className = 'scroll-top-btn';
+    scrollBtn.setAttribute('aria-label', 'Вгору сторінки');
+    scrollBtn.setAttribute('title', 'Вгору');
+    scrollBtn.innerHTML = `
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="12" y1="19" x2="12" y2="5"></line>
+        <polyline points="5 12 12 5 19 12"></polyline>
+      </svg>
+    `;
+    document.body.appendChild(scrollBtn);
+  }
+
+  const toggleVisibility = () => {
+    if (window.scrollY > 280) {
+      scrollBtn.classList.add('visible');
+    } else {
+      scrollBtn.classList.remove('visible');
+    }
+  };
+
+  window.addEventListener('scroll', toggleVisibility, { passive: true });
+  toggleVisibility();
+
+  scrollBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   });
 }
 

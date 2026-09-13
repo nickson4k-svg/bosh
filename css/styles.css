@@ -1224,6 +1224,47 @@ h6 {
   line-height: 1.4;
 }
 
+/* Кнопка швидкого скролу вгору (над плаваючим чатом) */
+.scroll-top-btn {
+  position: fixed;
+  bottom: 98px;
+  right: 34px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: var(--color-brand-primary);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 998;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px) scale(0.9);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease, background-color 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.scroll-top-btn.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.scroll-top-btn:hover {
+  background: var(--color-brand-primary);
+  color: #ffffff;
+  border-color: var(--color-brand-primary);
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 8px 20px rgba(0, 123, 192, 0.35);
+}
+
+.scroll-top-btn:active {
+  transform: translateY(0) scale(0.96);
+}
+
 /* --------------------------------------------------------------------------
    8. ПЛАВАЮЧИЙ ВІДЖЕТ ЧАТУ (Sticky Chat Widget)
    -------------------------------------------------------------------------- */
@@ -1688,6 +1729,13 @@ h6 {
   .sticky-chat-widget {
     bottom: 20px;
     right: 20px;
+  }
+
+  .scroll-top-btn {
+    bottom: 90px;
+    right: 28px;
+    width: 44px;
+    height: 44px;
   }
 }
 
