@@ -17,8 +17,8 @@ window.SITE_CONFIG = {
     phonePrimaryRaw: "",
     phoneSecondary: "+38 (0XX) XXX-XX-XX",
     phoneSecondaryRaw: "",
-    telegramUsername: "smeg_service_lead_bot",
-    telegramDirectLink: "https://t.me/smeg_service_lead_bot",
+    telegramUsername: "Hitech_00",
+    telegramDirectLink: "https://t.me/Hitech_00",
     viberLink: "#"
   },
   schedule: {
