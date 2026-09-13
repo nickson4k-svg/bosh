@@ -57,7 +57,7 @@ async function sendTelegramLead({ name, phone, device, message, source }) {
 
   // Формування красивого повідомлення
   const lines = [
-    '⚡️ <b>НОВА ЗАЯВКА НА РЕМОНТ</b>',
+    '🟢 <b>НОВА ЗАЯВКА | ОЧІКУЄ ДЗВІНКА</b>',
     '──────────────────────────',
     `👤 <b>Клієнт:</b> ${escapeTelegramHtml(name || 'Клієнт')}`,
     `📞 <b>Телефон:</b> <code>${escapeTelegramHtml(phone)}</code>`,
@@ -77,8 +77,8 @@ async function sendTelegramLead({ name, phone, device, message, source }) {
   const inline_keyboard = [];
   if (digits.length >= 10) {
     inline_keyboard.push([
-      { text: '💬 Написати в Telegram', url: `https://t.me/+${digits}` },
-      { text: '🟢 Написати у WhatsApp', url: `https://wa.me/${digits}` }
+      { text: '💬 Telegram', url: `https://t.me/+${digits}` },
+      { text: '🟢 WhatsApp', url: `https://wa.me/${digits}` }
     ]);
   }
 
