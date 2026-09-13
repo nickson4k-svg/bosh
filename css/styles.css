@@ -1420,7 +1420,8 @@ h6 {
   color: var(--color-white);
 }
 
-.footer-logo-wrap {
+.footer-logo-wrap,
+.footer-brand-logo {
   display: inline-flex;
   align-items: center;
   gap: 12px;
