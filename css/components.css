@@ -1111,20 +1111,33 @@
   opacity: 1;
 }
 
-.modal-dialog {
+.modal-dialog,
+.modal-window {
   background-color: var(--color-white);
   border-radius: var(--radius-md);
-  box-shadow: var(--shadow-card);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(0, 0, 0, 0.06);
   max-width: 480px;
   width: 100%;
   padding: 32px;
   position: relative;
   transform: translateY(20px);
   transition: transform var(--transition-normal);
+  z-index: 2001;
 }
 
-.modal-backdrop.active .modal-dialog {
+.modal-backdrop.active .modal-dialog,
+.modal-backdrop.active .modal-window {
   transform: translateY(0);
+}
+
+.modal-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-brand-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
 }
 
 .modal-close-btn {
