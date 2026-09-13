@@ -62,7 +62,6 @@ async function sendTelegramLead({ name, phone, device, message, source }) {
     `👤 <b>Клієнт:</b> ${escapeTelegramHtml(name || 'Клієнт')}`,
     `📞 <b>Телефон:</b> <code>${escapeTelegramHtml(phone)}</code>`,
     `🏷 <b>Прилад:</b> <b>${escapeTelegramHtml(device || 'Не вказано')}</b>`,
-    `📍 <b>Джерело:</b> ${escapeTelegramHtml(source || 'Форма на сайті')}`,
     `⏱ <b>Час:</b> ${timeString}`
   ];
 
