@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initModals();
   initForms();
   initSmoothScroll();
+  initScrollReveal();
 });
 
 /* --------------------------------------------------------------------------
@@ -364,5 +365,73 @@ function initSmoothScroll() {
         targetEl.scrollIntoView({ behavior: 'smooth' });
       }
     });
+  });
+}
+
+/* --------------------------------------------------------------------------
+   8. Анімація появи елементів при скролі (Scroll Reveal)
+   -------------------------------------------------------------------------- */
+function initScrollReveal() {
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    return;
+  }
+
+  // Каскадна затримка для карток в однакових контейнерах (stagger-ефект)
+  const containers = document.querySelectorAll(
+    '.services-grid, .advantages-grid, .review-grid, .pricing-grid, .faq-accordion, .process-steps, .contacts-grid'
+  );
+  containers.forEach(container => {
+    const items = container.querySelectorAll(
+      '.card, .service-card, .advantage-card, .review-card, .faq-item, .process-step, .category-block'
+    );
+    items.forEach((item, idx) => {
+      item.style.transitionDelay = `${(idx % 4) * 0.08}s`;
+    });
+  });
+
+  const targets = document.querySelectorAll(`
+    .section-header,
+    .category-block,
+    .service-card,
+    .advantage-card,
+    .process-step,
+    .faq-item,
+    .review-card,
+    .pricing-table-wrap,
+    .contact-card,
+    .form-card,
+    .card:not(.hero-floating-card):not(.modal-window):not(.modal-dialog),
+    [data-reveal]
+  `);
+
+  if (!targets.length) return;
+
+  if (!('IntersectionObserver' in window)) {
+    targets.forEach(el => el.classList.add('is-revealed'));
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-revealed');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, {
+    root: null,
+    rootMargin: '0px 0px -40px 0px',
+    threshold: 0.05
+  });
+
+  targets.forEach(el => {
+    const rect = el.getBoundingClientRect();
+    // Якщо елемент уже знаходиться в зоні видимості при завантаженні сторінки
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      el.classList.add('reveal-on-scroll', 'is-revealed');
+    } else {
+      el.classList.add('reveal-on-scroll');
+      observer.observe(el);
+    }
   });
 }
