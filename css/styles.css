@@ -166,11 +166,12 @@ h6 {
 }
 
 .page-title {
-  font-size: clamp(2.25rem, 4vw, 3.25rem);
+  font-size: clamp(1.6rem, 2.5vw, 2.15rem);
   font-weight: 800;
-  letter-spacing: -0.03em;
-  margin-top: 12px;
-  margin-bottom: 20px;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  margin-top: 4px;
+  margin-bottom: 8px;
   color: var(--color-text-title);
 }
 
@@ -312,8 +313,8 @@ h6 {
 
 /* Хлібні крихти (Breadcrumbs) */
 .breadcrumbs-nav {
-  padding-top: 24px;
-  padding-bottom: 8px;
+  padding-top: 10px;
+  padding-bottom: 2px;
 }
 
 .breadcrumbs-list {
@@ -1769,9 +1770,9 @@ h6 {
 
   /* Заголовки сторінок */
   .page-title {
-    font-size: 1.85rem;
-    margin-top: 8px;
-    margin-bottom: 16px;
+    font-size: 1.5rem;
+    margin-top: 4px;
+    margin-bottom: 8px;
     word-break: break-word;
   }
 
@@ -2202,9 +2203,9 @@ h6 {
   }
 
   .page-title {
-    font-size: 1.55rem;
-    margin-top: 6px;
-    margin-bottom: 12px;
+    font-size: 1.35rem;
+    margin-top: 2px;
+    margin-bottom: 6px;
   }
 
   /* Етапи регламенту робіт */
@@ -2325,7 +2326,7 @@ h6 {
 }
 
 .breadcrumbs-nav {
-  padding: 16px 0 8px;
+  padding: 10px 0 2px;
 }
 
 .breadcrumbs-list {
