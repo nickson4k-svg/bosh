@@ -87,6 +87,9 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -94,6 +97,8 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  max-width: 100%;
   overflow-x: hidden;
   background-color: var(--color-white);
 }
@@ -509,11 +514,14 @@ h6 {
   position: relative;
   background-color: var(--color-bg-light);
   overflow: hidden;
+  width: 100%;
+  max-width: 100%;
 }
 
 .hero-banner-wrap {
   position: relative;
   width: 100%;
+  max-width: 100%;
   min-height: 580px;
   display: flex;
   align-items: center;
@@ -534,6 +542,8 @@ h6 {
 .hero-overlay {
   position: absolute;
   inset: 0;
+  width: 100%;
+  height: 100%;
   background: linear-gradient(90deg, rgba(15, 23, 42, 0.45) 0%, rgba(15, 23, 42, 0.15) 60%, rgba(15, 23, 42, 0.35) 100%);
   z-index: 2;
 }
@@ -542,18 +552,22 @@ h6 {
   position: relative;
   z-index: 3;
   width: 100%;
+  max-width: var(--container-max-width);
+  box-sizing: border-box;
   padding-top: 56px;
   padding-bottom: 56px;
 }
 
 .hero-floating-card {
-  background-color: rgba(255, 255, 255, 0.692);
-  backdrop-filter: blur(6px);
+  background-color: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(12px);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-card);
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.75);
   max-width: 580px;
+  width: 100%;
+  box-sizing: border-box;
   padding: 40px;
   position: relative;
 }
@@ -563,6 +577,7 @@ h6 {
   align-items: center;
   gap: 10px;
   margin-bottom: 16px;
+  flex-wrap: wrap;
 }
 
 .hero-title {
@@ -689,7 +704,10 @@ h6 {
   padding: 6px;
   border-radius: var(--radius-sm);
   border: 1px solid var(--color-border);
-  width: fit-content;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  box-sizing: border-box;
 }
 
 .category-tab-btn {
@@ -702,6 +720,8 @@ h6 {
   cursor: pointer;
   border-radius: var(--radius-xs);
   transition: all var(--transition-fast);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .category-tab-btn:hover {
@@ -725,6 +745,8 @@ h6 {
   margin-bottom: 24px;
   padding-bottom: 12px;
   border-bottom: 2px solid var(--color-border);
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 .category-block-title {
@@ -1604,6 +1626,11 @@ h6 {
   border: 1px solid #FCA5A5;
 }
 
+/* Кнопки з альтернативним текстом для вузьких екранів */
+.btn-text-short {
+  display: none;
+}
+
 /* --------------------------------------------------------------------------
    11. АДАПТИВНІСТЬ ДЛЯ МОБІЛЬНИХ ПРИСТРОЇВ (Responsive Styles)
    -------------------------------------------------------------------------- */
@@ -1634,7 +1661,7 @@ h6 {
   .header-nav {
     display: none;
     position: fixed;
-    top: 84px;
+    top: 76px;
     left: 0;
     right: 0;
     background-color: var(--color-white);
@@ -1644,6 +1671,9 @@ h6 {
     border-bottom: 1px solid var(--color-border);
     gap: 12px;
     align-items: stretch;
+    max-height: calc(100vh - 76px);
+    overflow-y: auto;
+    z-index: 1001;
   }
 
   .header-nav.mobile-active {
@@ -1651,7 +1681,9 @@ h6 {
   }
 
   .mobile-nav-toggle {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .header-phone-box {
@@ -1676,67 +1708,461 @@ h6 {
 }
 
 @media (max-width: 768px) {
+  :root {
+    --container-padding: 16px;
+  }
+
+  .container,
+  .container-narrow {
+    padding-left: 16px;
+    padding-right: 16px;
+    box-sizing: border-box;
+  }
+
+  /* Хедер */
+  .site-header {
+    top: 4px;
+  }
+
+  .header-inner {
+    height: 64px;
+    gap: 10px;
+  }
+
+  .header-logo-wrap {
+    gap: 10px;
+  }
+
+  .header-logo-img {
+    height: 28px;
+    width: auto;
+    max-width: 120px;
+  }
+
+  .logo-tag-group {
+    padding-left: 8px;
+    border-left: 1.5px solid var(--color-border);
+  }
+
+  .logo-tag-title {
+    font-size: 0.85rem;
+  }
+
+  .logo-tag-sub {
+    display: none; /* Приховуємо підпис регіону на мобільних для запобігання горизонтального розриву */
+  }
+
+  .header-actions {
+    gap: 10px;
+  }
+
+  .header-actions .btn {
+    padding: 8px 14px;
+    font-size: 0.825rem;
+  }
+
+  .header-nav {
+    top: 68px;
+    max-height: calc(100vh - 68px);
+    padding: 20px 16px;
+  }
+
+  /* Заголовки сторінок */
+  .page-title {
+    font-size: 1.85rem;
+    margin-top: 8px;
+    margin-bottom: 16px;
+    word-break: break-word;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .section-lead {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  /* Hero секція */
+  .hero-banner-wrap {
+    min-height: 480px;
+  }
+
+  .hero-container {
+    padding-top: 28px;
+    padding-bottom: 28px;
+  }
+
   .hero-floating-card {
-    padding: 28px 20px;
+    padding: 24px 18px;
+    max-width: 100%;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+  }
+
+  .hero-kicker {
+    gap: 6px;
+    margin-bottom: 12px;
+  }
+
+  .hero-kicker .badge {
+    font-size: 0.7rem;
+    padding: 3px 8px;
+  }
+
+  .hero-title {
+    font-size: 1.55rem;
+    line-height: 1.22;
+    margin-bottom: 12px;
+  }
+
+  .hero-desc {
+    font-size: 0.92rem;
+    line-height: 1.55;
+    margin-bottom: 18px;
+  }
+
+  .hero-perks-list {
+    gap: 8px;
+    margin-bottom: 22px;
+    padding-top: 14px;
+  }
+
+  .hero-perk-item {
+    font-size: 0.875rem;
   }
 
   .hero-cta-group {
     flex-direction: column;
     width: 100%;
+    gap: 10px;
   }
 
   .hero-cta-group .btn {
     width: 100%;
   }
 
+  /* Смуга переваг */
+  .proof-strip {
+    padding: 24px 0;
+  }
+
   .proof-grid {
     grid-template-columns: 1fr;
+    gap: 12px;
   }
 
   .proof-item {
     border-right: none;
     border-bottom: 1px solid var(--color-border);
-    padding-bottom: 16px;
+    padding: 10px 0 14px 0;
   }
 
   .proof-item:last-child {
     border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  /* Категорії */
+  .category-tabs {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .category-tab-btn {
+    padding: 8px 14px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .category-block-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .category-block-title {
+    font-size: 1.25rem;
   }
 
   .category-cards-grid {
     grid-template-columns: 1fr;
   }
 
+  /* Секції та картки */
+  .section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .card {
+    padding: 20px 16px !important;
+  }
+
+  .category-block {
+    padding: 20px 16px !important;
+    margin-bottom: 32px;
+  }
+
+  /* Адаптація інлайнових сіток */
+  div[style*="minmax(280px"],
+  div[style*="minmax(320px"],
+  div[style*="minmax(260px"],
+  div[style*="minmax(240px"] {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  .category-block img {
+    width: 100% !important;
+    height: 200px !important;
+  }
+
   .contact-grid {
     grid-template-columns: 1fr;
+    gap: 24px;
   }
 
-  .footer-grid {
-    grid-template-columns: 1fr;
-    gap: 32px;
+  .contact-info-panel,
+  .contact-form-panel {
+    padding: 24px 18px;
   }
 
-  .section {
-    padding-top: 44px;
-    padding-bottom: 44px;
+  /* Таблиці */
+  .pricing-matrix-wrap,
+  .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
   }
 
   .pricing-table th,
   .pricing-table td {
-    padding: 12px 14px;
-    font-size: 0.875rem;
+    padding: 10px 12px;
+    font-size: 0.8125rem;
   }
 
+  .price-value-cell {
+    font-size: 0.95rem;
+    white-space: nowrap;
+  }
+
+  /* Футер */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    margin-bottom: 32px;
+  }
+
+  .site-footer {
+    padding-top: 44px;
+    padding-bottom: 24px;
+  }
+
+  /* Плаваючі кнопки */
   .sticky-chat-widget {
-    bottom: 20px;
-    right: 20px;
+    bottom: 16px;
+    right: 16px;
+  }
+
+  .chat-toggle-btn {
+    width: 52px;
+    height: 52px;
+  }
+
+  .chat-toggle-btn svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .chat-popup-menu {
+    right: 0;
+    width: calc(100vw - 32px);
+    max-width: 290px;
+    bottom: 66px;
   }
 
   .scroll-top-btn {
-    bottom: 90px;
-    right: 28px;
+    bottom: 78px;
+    right: 20px;
     width: 44px;
     height: 44px;
+  }
+}
+
+@media (max-width: 520px) {
+  :root {
+    --container-padding: 14px;
+  }
+
+  .container,
+  .container-narrow {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  /* Хедер на смартфонах */
+  .header-inner {
+    height: 58px;
+    gap: 6px;
+  }
+
+  .header-logo-wrap {
+    gap: 6px;
+  }
+
+  .header-logo-img {
+    height: 24px;
+    max-width: 105px;
+  }
+
+  .logo-tag-group {
+    padding-left: 6px;
+  }
+
+  .logo-tag-title {
+    font-size: 0.78rem;
+  }
+
+  .header-actions {
+    gap: 6px;
+  }
+
+  .header-actions .btn {
+    padding: 6px 10px;
+    font-size: 0.775rem;
+  }
+
+  .btn-text-full {
+    display: none;
+  }
+
+  .btn-text-short {
+    display: inline;
+  }
+
+  .mobile-nav-toggle {
+    padding: 4px;
+  }
+
+  .mobile-nav-toggle svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .header-nav {
+    top: 62px;
+    max-height: calc(100vh - 62px);
+    padding: 16px 12px;
+  }
+
+  /* Hero на смартфонах */
+  .hero-banner-wrap {
+    min-height: auto;
+  }
+
+  .hero-container {
+    padding-top: 18px;
+    padding-bottom: 22px;
+  }
+
+  .hero-floating-card {
+    padding: 20px 14px;
+    border-radius: var(--radius-sm);
+    background-color: rgba(255, 255, 255, 0.95);
+  }
+
+  .hero-title {
+    font-size: 1.35rem;
+    line-height: 1.25;
+    margin-bottom: 10px;
+  }
+
+  .hero-desc {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    margin-bottom: 14px;
+  }
+
+  .hero-perks-list {
+    gap: 6px;
+    margin-bottom: 18px;
+    padding-top: 10px;
+  }
+
+  .hero-perk-item {
+    font-size: 0.8125rem;
+    gap: 8px;
+  }
+
+  .hero-perk-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .page-title {
+    font-size: 1.55rem;
+    margin-top: 6px;
+    margin-bottom: 12px;
+  }
+
+  /* Етапи регламенту робіт */
+  div[style*="grid-template-columns: 80px 1fr"] {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  /* Модальні вікна */
+  .modal-backdrop {
+    padding: 10px;
+  }
+
+  .modal-dialog,
+  .modal-window {
+    padding: 20px 14px;
+    border-radius: var(--radius-sm);
+    max-height: 92vh;
+    overflow-y: auto;
+  }
+
+  .modal-title {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 380px) {
+  :root {
+    --container-padding: 10px;
+  }
+
+  .container,
+  .container-narrow {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .header-logo-img {
+    height: 22px;
+    max-width: 90px;
+  }
+
+  .logo-tag-title {
+    font-size: 0.7rem;
+  }
+
+  .header-actions .btn {
+    padding: 5px 8px;
+    font-size: 0.75rem;
+  }
+
+  .hero-title {
+    font-size: 1.22rem;
   }
 }
 
