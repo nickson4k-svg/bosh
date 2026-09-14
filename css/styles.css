@@ -1934,23 +1934,113 @@ h6 {
     padding: 24px 18px;
   }
 
-  /* Таблиці */
+  /* Таблиці: на мобільних перетворюються на адаптивні картки без горизонтального скролу */
   .pricing-matrix-wrap,
   .table-responsive {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
+    overflow-x: visible;
+    width: 100%;
+    border-radius: var(--radius-md);
+  }
+
+  .pricing-table {
+    display: block;
+    width: 100%;
+    border-collapse: separate;
+  }
+
+  .pricing-table thead {
+    display: none;
+  }
+
+  .pricing-table tbody {
+    display: flex;
+    flex-direction: column;
     width: 100%;
   }
 
-  .pricing-table th,
-  .pricing-table td {
-    padding: 10px 12px;
-    font-size: 0.8125rem;
+  .pricing-table tr {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 14px;
+    border-bottom: 1px solid var(--color-border);
+    gap: 8px 12px;
+    box-sizing: border-box;
+    width: 100%;
+    background-color: var(--color-white);
   }
 
-  .price-value-cell {
-    font-size: 0.95rem;
+  .pricing-table tr:last-child {
+    border-bottom: none;
+  }
+
+  .pricing-table tr:hover td {
+    background-color: transparent;
+  }
+
+  .pricing-table td {
+    display: block;
+    padding: 0;
+    border: none;
+  }
+
+  /* Назва послуги та опис на повну ширину */
+  .pricing-table tr td:first-child {
+    width: 100%;
+    flex: 1 1 100%;
+    order: 1;
+  }
+
+  .pricing-table tr td:first-child .price-service-name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-text-title);
+    line-height: 1.35;
+    display: block;
+  }
+
+  .pricing-table tr td:first-child .price-service-note {
+    font-size: 0.825rem;
+    color: var(--color-text-muted);
+    line-height: 1.45;
+    margin-top: 4px;
+    display: block;
+  }
+
+  /* Орієнтовна ціна (зліва у 2-му рядку) */
+  .pricing-table tr td.price-value-cell,
+  .pricing-table tr td:nth-child(2) {
+    order: 2;
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--color-brand-primary);
     white-space: nowrap;
+  }
+
+  /* Дія / Кнопка "Замовити" (справа у 2-му рядку) */
+  .pricing-table tr td.price-action-cell,
+  .pricing-table tr td:last-child:has(.btn) {
+    order: 3;
+    margin-left: auto;
+  }
+
+  .pricing-table tr td.price-action-cell .btn,
+  .pricing-table tr td:last-child .btn {
+    padding: 7px 16px;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+
+  /* Якщо 3-тя колонка містить опис (на prices.html) */
+  .pricing-table tr td:nth-child(3):not(.price-action-cell):not(:has(.btn)) {
+    width: 100%;
+    flex: 1 1 100%;
+    order: 3;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    line-height: 1.45;
+    margin-left: 0;
   }
 
   /* Футер */
@@ -1967,32 +2057,37 @@ h6 {
 
   /* Плаваючі кнопки */
   .sticky-chat-widget {
-    bottom: 16px;
-    right: 16px;
+    bottom: 14px;
+    right: 14px;
   }
 
   .chat-toggle-btn {
-    width: 52px;
-    height: 52px;
+    width: 48px;
+    height: 48px;
   }
 
   .chat-toggle-btn svg {
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
   }
 
   .chat-popup-menu {
     right: 0;
-    width: calc(100vw - 32px);
-    max-width: 290px;
-    bottom: 66px;
+    width: calc(100vw - 28px);
+    max-width: 280px;
+    bottom: 62px;
   }
 
   .scroll-top-btn {
-    bottom: 78px;
-    right: 20px;
-    width: 44px;
-    height: 44px;
+    bottom: 68px;
+    right: 18px;
+    width: 38px;
+    height: 38px;
+  }
+
+  .scroll-top-btn svg {
+    width: 18px;
+    height: 18px;
   }
 }
 
@@ -2133,6 +2228,40 @@ h6 {
 
   .modal-title {
     font-size: 1.2rem;
+  }
+
+  /* Таблиця на маленьких смартфонах */
+  .pricing-table tr {
+    padding: 14px 10px;
+    gap: 6px 10px;
+  }
+
+  .pricing-table tr td.price-value-cell {
+    font-size: 1.05rem;
+  }
+
+  .pricing-table tr td.price-action-cell .btn,
+  .pricing-table tr td:last-child .btn {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+
+  /* Плаваючі кнопки */
+  .sticky-chat-widget {
+    bottom: 12px;
+    right: 12px;
+  }
+
+  .chat-toggle-btn {
+    width: 46px;
+    height: 46px;
+  }
+
+  .scroll-top-btn {
+    bottom: 64px;
+    right: 14px;
+    width: 36px;
+    height: 36px;
   }
 }
 
