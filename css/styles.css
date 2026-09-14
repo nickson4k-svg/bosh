@@ -635,20 +635,20 @@ h6 {
 .proof-strip {
   background-color: var(--color-white);
   border-bottom: 1px solid var(--color-border);
-  padding: 32px 0;
+  padding: 14px 0;
 }
 
 .proof-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+  gap: 16px;
 }
 
 .proof-item {
   display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  padding: 8px 12px;
+  align-items: center;
+  gap: 12px;
+  padding: 4px 10px;
   border-right: 1px solid var(--color-border);
 }
 
@@ -657,8 +657,8 @@ h6 {
 }
 
 .proof-icon {
-  width: 44px;
-  height: 44px;
+  width: 36px;
+  height: 36px;
   border-radius: var(--radius-sm);
   background-color: var(--color-brand-subtle);
   color: var(--color-brand-primary);
@@ -668,8 +668,13 @@ h6 {
   flex-shrink: 0;
 }
 
+.proof-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
 .proof-number {
-  font-size: 2.25rem;
+  font-size: 1.75rem;
   font-weight: 800;
   color: var(--color-brand-primary);
   line-height: 1;
@@ -679,19 +684,20 @@ h6 {
 .proof-text {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 1px;
 }
 
 .proof-label {
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   font-weight: 700;
   color: var(--color-text-title);
+  line-height: 1.25;
 }
 
 .proof-sub {
-  font-size: 0.8125rem;
+  font-size: 0.775rem;
   color: var(--color-text-muted);
-  line-height: 1.4;
+  line-height: 1.3;
 }
 
 /* --------------------------------------------------------------------------
@@ -1849,18 +1855,18 @@ h6 {
 
   /* Смуга переваг */
   .proof-strip {
-    padding: 24px 0;
+    padding: 16px 0;
   }
 
   .proof-grid {
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 8px;
   }
 
   .proof-item {
     border-right: none;
     border-bottom: 1px solid var(--color-border);
-    padding: 10px 0 14px 0;
+    padding: 6px 0 8px 0;
   }
 
   .proof-item:last-child {
