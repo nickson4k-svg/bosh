@@ -523,7 +523,7 @@ h6 {
   position: relative;
   width: 100%;
   max-width: 100%;
-  min-height: 720px;
+  min-height: 520px;
   display: flex;
   align-items: center;
 }
@@ -555,8 +555,8 @@ h6 {
   width: 100%;
   max-width: var(--container-max-width);
   box-sizing: border-box;
-  padding-top: 52px;
-  padding-bottom: 52px;
+  padding-top: 36px;
+  padding-bottom: 36px;
 }
 
 .hero-floating-card {
@@ -569,7 +569,7 @@ h6 {
   max-width: 480px;
   width: 100%;
   box-sizing: border-box;
-  padding: 34px 28px;
+  padding: 26px 24px;
   position: relative;
 }
 
@@ -645,7 +645,7 @@ h6 {
   background-color: var(--color-white);
   border-top: 1px solid var(--color-border);
   border-bottom: 1px solid var(--color-border);
-  padding: 18px 0;
+  padding: 12px 0;
 }
 
 .proof-grid {
