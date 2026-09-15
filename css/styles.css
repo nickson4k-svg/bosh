@@ -523,7 +523,7 @@ h6 {
   position: relative;
   width: 100%;
   max-width: 100%;
-  min-height: 580px;
+  min-height: 480px;
   display: flex;
   align-items: center;
 }
@@ -535,7 +535,7 @@ h6 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 35%;
+  object-position: 70% 32%;
   z-index: 1;
   pointer-events: none;
 }
@@ -545,7 +545,7 @@ h6 {
   inset: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, rgba(15, 23, 42, 0.45) 0%, rgba(15, 23, 42, 0.15) 60%, rgba(15, 23, 42, 0.35) 100%);
+  background: linear-gradient(90deg, rgba(15, 23, 42, 0.40) 0%, rgba(15, 23, 42, 0.12) 60%, rgba(15, 23, 42, 0.30) 100%);
   z-index: 2;
 }
 
@@ -555,69 +555,69 @@ h6 {
   width: 100%;
   max-width: var(--container-max-width);
   box-sizing: border-box;
-  padding-top: 56px;
-  padding-bottom: 56px;
+  padding-top: 32px;
+  padding-bottom: 32px;
 }
 
 .hero-floating-card {
-  background-color: rgba(255, 255, 255, 0.88);
+  background-color: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(12px);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-card);
-  border: 1px solid rgba(255, 255, 255, 0.75);
-  max-width: 580px;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  max-width: 500px;
   width: 100%;
   box-sizing: border-box;
-  padding: 40px;
+  padding: 30px 32px;
   position: relative;
 }
 
 .hero-kicker {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 16px;
+  gap: 8px;
+  margin-bottom: 12px;
   flex-wrap: wrap;
 }
 
 .hero-title {
-  font-size: clamp(2rem, 3.2vw, 2.75rem);
+  font-size: clamp(1.75rem, 2.5vw, 2.35rem);
   font-weight: 800;
-  line-height: 1.18;
+  line-height: 1.2;
   letter-spacing: -0.03em;
   color: var(--color-text-title);
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .hero-desc {
-  font-size: 1.05rem;
-  line-height: 1.6;
+  font-size: 0.975rem;
+  line-height: 1.55;
   color: var(--color-text-body);
-  margin-bottom: 24px;
+  margin-bottom: 18px;
 }
 
 .hero-perks-list {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin-bottom: 32px;
-  padding-top: 16px;
+  gap: 8px;
+  margin-bottom: 24px;
+  padding-top: 14px;
   border-top: 1px solid var(--color-border);
 }
 
 .hero-perk-item {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 0.9375rem;
+  gap: 8px;
+  font-size: 0.875rem;
   color: var(--color-text-title);
   font-weight: 500;
 }
 
 .hero-perk-icon {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   color: var(--color-brand-primary);
   flex-shrink: 0;
 }
@@ -625,7 +625,7 @@ h6 {
 .hero-cta-group {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
   flex-wrap: wrap;
 }
 
@@ -1639,8 +1639,121 @@ h6 {
 }
 
 /* --------------------------------------------------------------------------
-   11. АДАПТИВНІСТЬ ДЛЯ МОБІЛЬНИХ ПРИСТРОЇВ (Responsive Styles)
+   11. АДАПТИВНІСТЬ ДЛЯ НОУТБУКІВ ТА МОБІЛЬНИХ ПРИСТРОЇВ (Responsive Styles)
    -------------------------------------------------------------------------- */
+/* Адаптація для ноутбуків та моніторів з висотою екрана до 850px (1366x768, 1440x900, масштабування 125%/150%) */
+@media (max-width: 1400px), (max-height: 850px) {
+  .hero-banner-wrap {
+    min-height: 420px;
+  }
+
+  .hero-container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .hero-floating-card {
+    max-width: 460px;
+    padding: 22px 24px;
+  }
+
+  .hero-kicker {
+    margin-bottom: 8px;
+    gap: 6px;
+  }
+
+  .hero-kicker .badge {
+    font-size: 0.72rem;
+    padding: 3px 8px;
+  }
+
+  .hero-title {
+    font-size: clamp(1.45rem, 2vw, 1.85rem);
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+
+  .hero-desc {
+    font-size: 0.875rem;
+    line-height: 1.45;
+    margin-bottom: 12px;
+  }
+
+  .hero-perks-list {
+    gap: 6px;
+    margin-bottom: 16px;
+    padding-top: 10px;
+  }
+
+  .hero-perk-item {
+    font-size: 0.8125rem;
+    gap: 6px;
+  }
+
+  .hero-perk-icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .hero-cta-group {
+    gap: 10px;
+  }
+
+  .hero-cta-group .btn {
+    padding: 9px 18px;
+    font-size: 0.875rem;
+  }
+}
+
+/* Компактні екрани ноутбуків з висотою менше 720px (гарантує повну видимість кнопок без скролу) */
+@media (max-height: 720px) and (min-width: 769px) {
+  .breadcrumbs-nav {
+    padding: 6px 0 2px;
+  }
+
+  .page-title {
+    font-size: 1.45rem;
+    margin-top: 2px;
+    margin-bottom: 4px;
+  }
+
+  .hero-banner-wrap {
+    min-height: 380px;
+  }
+
+  .hero-container {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  .hero-floating-card {
+    max-width: 440px;
+    padding: 16px 20px;
+  }
+
+  .hero-title {
+    font-size: 1.35rem;
+    margin-bottom: 6px;
+  }
+
+  .hero-desc {
+    font-size: 0.825rem;
+    line-height: 1.4;
+    margin-bottom: 10px;
+  }
+
+  .hero-perks-list {
+    gap: 4px;
+    margin-bottom: 12px;
+    padding-top: 8px;
+  }
+
+  .hero-cta-group .btn {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+}
+
 @media (max-width: 1240px) {
   .header-phone-label {
     display: none;
