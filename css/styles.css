@@ -523,7 +523,8 @@ h6 {
   position: relative;
   width: 100%;
   max-width: 100%;
-  min-height: 520px;
+  min-height: 585px;
+  min-height: calc(100vh - 220px);
   display: flex;
   align-items: center;
 }
