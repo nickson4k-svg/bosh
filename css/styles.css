@@ -1641,6 +1641,64 @@ h6 {
 /* --------------------------------------------------------------------------
    11. АДАПТИВНІСТЬ ДЛЯ МОБІЛЬНИХ ПРИСТРОЇВ (Responsive Styles)
    -------------------------------------------------------------------------- */
+/* Адаптація виключно для компактних по висоті екранів/ноутбуків (1366x768, масштабування 125%/150%), щоб кнопки картки не зрізалися */
+@media (max-height: 760px) and (min-width: 769px) {
+  .hero-banner-wrap {
+    min-height: 440px;
+  }
+
+  .hero-container {
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+
+  .hero-floating-card {
+    padding: 24px 28px;
+    max-width: 520px;
+  }
+
+  .hero-kicker {
+    margin-bottom: 10px;
+    gap: 6px;
+  }
+
+  .hero-title {
+    font-size: 1.85rem;
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+
+  .hero-desc {
+    font-size: 0.925rem;
+    line-height: 1.48;
+    margin-bottom: 14px;
+  }
+
+  .hero-perks-list {
+    gap: 6px;
+    margin-bottom: 18px;
+    padding-top: 10px;
+  }
+
+  .hero-perk-item {
+    font-size: 0.85rem;
+    gap: 8px;
+  }
+
+  .hero-perk-icon {
+    width: 17px;
+    height: 17px;
+  }
+
+  .hero-cta-group {
+    gap: 10px;
+  }
+
+  .hero-cta-group .btn {
+    padding: 10px 20px;
+  }
+}
+
 @media (max-width: 1240px) {
   .header-phone-label {
     display: none;
