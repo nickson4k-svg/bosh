@@ -523,8 +523,8 @@ h6 {
   position: relative;
   width: 100%;
   max-width: 100%;
-  min-height: 585px;
-  min-height: calc(100vh - 220px);
+  min-height: 545px;
+  min-height: calc(100vh - 255px);
   display: flex;
   align-items: center;
 }
@@ -556,8 +556,8 @@ h6 {
   width: 100%;
   max-width: var(--container-max-width);
   box-sizing: border-box;
-  padding-top: 36px;
-  padding-bottom: 36px;
+  padding-top: 28px;
+  padding-bottom: 28px;
 }
 
 .hero-floating-card {
