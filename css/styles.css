@@ -523,7 +523,7 @@ h6 {
   position: relative;
   width: 100%;
   max-width: 100%;
-  min-height: 640px;
+  min-height: 720px;
   display: flex;
   align-items: center;
 }
@@ -643,8 +643,9 @@ h6 {
    -------------------------------------------------------------------------- */
 .proof-strip {
   background-color: var(--color-white);
+  border-top: 1px solid var(--color-border);
   border-bottom: 1px solid var(--color-border);
-  padding: 14px 0;
+  padding: 18px 0;
 }
 
 .proof-grid {
