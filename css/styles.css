@@ -568,7 +568,7 @@ h6 {
   max-width: 480px;
   width: 100%;
   box-sizing: border-box;
-  padding: 30px 28px 24px 28px;
+  padding: 30px 28px 28px 28px;
   position: relative;
 }
 
@@ -593,11 +593,11 @@ h6 {
   font-size: 1rem;
   line-height: 1.5;
   color: #475569;
-  margin: 0 0 20px 0;
+  margin: 14px 0 22px 0;
 }
 
 .hero-cta-group {
-  margin-bottom: 20px;
+  margin-bottom: 0;
 }
 
 .hero-cta-group .btn {
