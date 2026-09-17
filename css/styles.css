@@ -561,7 +561,7 @@ h6 {
 }
 
 .hero-floating-card {
-  background: #ffffff;
+  background: #ffffffee;
   border-radius: 0;
   box-shadow: 0 16px 36px -6px rgba(0, 0, 0, 0.12), 0 8px 16px -6px rgba(0, 0, 0, 0.06);
   border: 1px solid rgba(226, 232, 240, 0.9);
@@ -574,7 +574,7 @@ h6 {
   flex-direction: column;
   justify-content: space-between;
   position: relative;
-  clip-path: polygon(0 0, calc(100% - 42px) 0, 100% 42px, 100% 100%, 0 100%);
+  clip-path: polygon(0 0, calc(100% - 62px) 0, 100% 62px, 100% 100%, 0 100%);
 }
 
 .hero-title {

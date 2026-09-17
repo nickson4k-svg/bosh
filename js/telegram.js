@@ -43,6 +43,17 @@ function normalizePhoneNumber(phone) {
 }
 
 /**
+ * Форматує поточну дату та час у вигляді: "31.08 о 13:28"
+ */
+function formatKyivDateTime(date = new Date()) {
+  const day = String(date.getDate()).padStart(2, '0');
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const hours = String(date.getHours()).padStart(2, '0');
+  const minutes = String(date.getMinutes()).padStart(2, '0');
+  return `${day}.${month} о ${hours}:${minutes}`;
+}
+
+/**
  * Відправляє заявку на ремонт у Telegram-чат сервісного центру
  * @param {Object} data { name, phone, device, message, source }
  * @returns {Promise<{ ok: boolean, error?: string }>}
@@ -52,69 +63,33 @@ async function sendTelegramLead({ name, phone, device, message, source }) {
   const botToken = (cfg.telegram && cfg.telegram.botToken) || "8768247342:AAHJcR4m_z7AjmJdKoW0IbVCc7cL4mLPlxo";
   const chatId = (cfg.telegram && cfg.telegram.chatId) || "-5310506440";
 
-  const now = new Date();
-  const timeString = now.toLocaleString('uk-UA', { timeZone: 'Europe/Kyiv' });
+  const timeString = formatKyivDateTime(new Date());
+  const locationName = source || 'Home';
 
-  // Формування красивого повідомлення
+  // Лаконічний формат заявки
   const lines = [
-    '🟢 <b>НОВА ЗАЯВКА | ОЧІКУЄ ДЗВІНКА</b>',
-    '──────────────────────────',
-    `👤 <b>Клієнт:</b> ${escapeTelegramHtml(name || 'Клієнт')}`,
-    `📞 <b>Телефон:</b> <code>${escapeTelegramHtml(phone)}</code>`,
-    `🏷 <b>Прилад:</b> <b>${escapeTelegramHtml(device || 'Не вказано')}</b>`,
-    `⏱ <b>Час:</b> ${timeString}`
+    '<b>[BOSCH]</b>',
+    '',
+    `🟢 <b>НОВА ЗАЯВКА:</b> ${timeString}`,
+    `📍 <b>${escapeTelegramHtml(locationName)}</b>`,
+    '📋 <b>Форма:</b>',
+    '',
+    `🔻 <b>Ваше Ім’я:</b> ${escapeTelegramHtml(name || 'Не вказано')}`,
+    `🔻 <b>Телефон:</b> <code>${escapeTelegramHtml(phone)}</code>`,
+    `🔻 <b>Тип приладу:</b> ${escapeTelegramHtml(device || 'Не вказано')}`,
+    `🔻 <b>Коментар майстру:</b> ${escapeTelegramHtml((message && message.trim() && message.trim() !== '—') ? message.trim() : 'Немає')}`
   ];
-
-  if (message && message.trim() && message.trim() !== '—') {
-    lines.push('');
-    lines.push(`<blockquote>📝 <b>Опис несправності:</b>\n${escapeTelegramHtml(message.trim())}</blockquote>`);
-  }
 
   const textPayload = lines.join('\n');
 
-  // Інтерактивні кнопки швидкого зв'язку
-  const digits = normalizePhoneNumber(phone);
-  const inline_keyboard = [];
-  if (digits.length >= 10) {
-    inline_keyboard.push([
-      { text: '💬 Telegram', url: `https://t.me/+${digits}` },
-      { text: '🟢 WhatsApp', url: `https://wa.me/${digits}` }
-    ]);
-  }
-
-  const reply_markup = inline_keyboard.length > 0 ? { inline_keyboard } : undefined;
-  const photoUrl = getDevicePhotoUrl(device);
-
   try {
-    // 1. Спроба відправити графічне фото-повідомлення (sendPhoto)
-    const photoResponse = await fetch(`https://api.telegram.org/bot${botToken}/sendPhoto`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        chat_id: chatId,
-        photo: photoUrl,
-        caption: textPayload,
-        parse_mode: 'HTML',
-        reply_markup: reply_markup
-      })
-    });
-
-    const photoResult = await photoResponse.json();
-    if (photoResult.ok) {
-      return { ok: true };
-    }
-
-    console.warn('sendPhoto failed, falling back to sendMessage:', photoResult);
-
-    // 2. Fallback на звичайне текстове повідомлення (якщо фото недоступне)
     const textResponse = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         chat_id: chatId,
         text: textPayload,
-        parse_mode: 'HTML',
-        reply_markup: reply_markup
+        parse_mode: 'HTML'
       })
     });
 
