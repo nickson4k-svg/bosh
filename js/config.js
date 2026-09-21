@@ -16,8 +16,6 @@ window.SITE_CONFIG = {
     phonePrimaryRaw: "+380688249527",
     phoneSecondary: "+38 (068) 824-95-27",
     phoneSecondaryRaw: "+380688249527",
-    telegramUsername: "Hitech_00",
-    telegramDirectLink: "https://t.me/Hitech_00",
     viberLink: "viber://chat?number=%2B380688249527"
   },
   schedule: {

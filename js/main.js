@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileNav();
   initCategoryTabs();
   initFaqAccordion();
-  initStickyChatWidget();
   initScrollTopButton();
   initModals();
   initForms();
@@ -111,29 +110,7 @@ function initFaqAccordion() {
   });
 }
 
-/* --------------------------------------------------------------------------
-   4. Плаваючий віджет чату
-   -------------------------------------------------------------------------- */
-function initStickyChatWidget() {
-  const widget = document.querySelector('.sticky-chat-widget');
-  if (!widget) return;
 
-  const toggleBtn = widget.querySelector('.chat-toggle-btn');
-  const popupMenu = widget.querySelector('.chat-popup-menu');
-
-  if (!toggleBtn || !popupMenu) return;
-
-  toggleBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    popupMenu.classList.toggle('active');
-  });
-
-  document.addEventListener('click', (e) => {
-    if (!widget.contains(e.target)) {
-      popupMenu.classList.remove('active');
-    }
-  });
-}
 
 /* --------------------------------------------------------------------------
    4.1 Кнопка швидкого скролу вгору (над плаваючим чатом)
