@@ -212,7 +212,7 @@ function initModals() {
 }
 
 /* --------------------------------------------------------------------------
-   6. Обробка відправки форм (через window.sendTelegramLead)
+   6. Обробка відправки форм (через серверний PHP обробник send.php)
    -------------------------------------------------------------------------- */
 function initForms() {
   const forms = document.querySelectorAll('.ajax-repair-form');
@@ -242,9 +242,10 @@ function initForms() {
       const userMessage = messageInput ? messageInput.value.trim() : '—';
       const formSource = form.getAttribute('data-form-source') || document.title || 'Форма на сайті';
 
-      // Перевірка коректності номера
-      if (!phone || phone.length < 8) {
-        showFormStatus(statusToast, 'Будь ласка, введіть коректний номер телефону.', 'error');
+      // Перевірка коректності номера (мінімум 9 цифр)
+      const digitsOnly = phone.replace(/\D/g, '');
+      if (!phone || digitsOnly.length < 9) {
+        showFormStatus(statusToast, 'Будь ласка, введіть коректний номер телефону (наприклад, 068 824 95 27).', 'error');
         if (phoneInput) phoneInput.focus();
         return;
       }
@@ -262,38 +263,44 @@ function initForms() {
       }
 
       try {
-        let result = { ok: true };
-        if (typeof window.sendTelegramLead === 'function') {
-          result = await window.sendTelegramLead({
+        const response = await fetch('send.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
             name,
             phone,
             device,
             message: userMessage,
-            source: formSource
-          });
-        }
+            source: formSource,
+            website_hp: honeypot ? honeypot.value : ''
+          })
+        });
 
-        if (result.ok) {
-          showFormStatus(
-            statusToast,
-            'Дякуємо! Вашу заявку успішно прийнято. Черговий спеціаліст зв’яжеться з вами для уточнення деталей та узгодження часу візиту.',
-            'success'
-          );
+        const result = await response.json();
+
+        if (response.ok && result.ok) {
           form.reset();
+          if (statusToast) statusToast.style.display = 'none';
 
-          // Якщо це модалка — плавно закриваємо через 3.5 секунди
+          // Закриваємо модалку виклику, якщо відкрита
           const parentModal = form.closest('.modal-backdrop');
           if (parentModal) {
-            setTimeout(() => {
-              parentModal.classList.remove('active');
-              document.body.style.overflow = '';
-              if (statusToast) statusToast.style.display = 'none';
-            }, 3500);
+            parentModal.classList.remove('active');
+            document.body.style.overflow = '';
           }
+
+          // Показуємо красиве модальне вікно успішної заявки
+          showSuccessModal({
+            name,
+            phone
+          });
         } else {
           showFormStatus(
             statusToast,
-            'Виникла технічна заминка при відправці. Будь ласка, зателефонуйте нам прямо зараз за номером у шапці сайту.',
+            result.error || 'Виникла технічна заминка при відправці. Будь ласка, зателефонуйте нам прямо зараз за номером у шапці сайту.',
             'error'
           );
         }
@@ -301,7 +308,7 @@ function initForms() {
         console.error('Form submission error:', err);
         showFormStatus(
           statusToast,
-          'Не вдалося зв’язатися з сервером. Зателефонуйте черговому інженеру напряму.',
+          'Не вдалося зʼєднатися з сервером. Зателефонуйте черговому інженеру напряму.',
           'error'
         );
       } finally {
@@ -312,6 +319,57 @@ function initForms() {
       }
     });
   });
+}
+
+/**
+ * Відображає модальне вікно про успішно прийняту заявку
+ */
+function showSuccessModal({ name, phone }) {
+  let successModal = document.getElementById('order-success-modal');
+  if (!successModal) {
+    successModal = document.createElement('div');
+    successModal.id = 'order-success-modal';
+    successModal.className = 'modal-backdrop';
+    successModal.setAttribute('role', 'dialog');
+    successModal.setAttribute('aria-modal', 'true');
+    successModal.setAttribute('aria-labelledby', 'success-modal-title');
+    successModal.innerHTML = `
+      <div class="modal-dialog modal-window" style="text-align: center; max-width: 440px;">
+        <button type="button" class="modal-close-btn" data-close-modal aria-label="Закрити">&times;</button>
+        <div style="width: 64px; height: 64px; background: #DCFCE7; color: #16A34A; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 18px;">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+        <h3 class="modal-title" id="success-modal-title" style="margin-bottom: 10px; font-size: 1.4rem;">Заявку прийнято!</h3>
+        <p style="color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.55; margin-bottom: 24px;">
+          Дякуємо! Ваше звернення передано черговому інженеру. Ми зателефонуємо вам для уточнення деталей та погодження часу візиту майстра.
+        </p>
+        <button type="button" class="btn btn-primary" data-close-modal style="width: 100%;">
+          <span>Зрозуміло</span>
+        </button>
+      </div>
+    `;
+    document.body.appendChild(successModal);
+
+    // Додаємо слухачі на закриття
+    successModal.querySelectorAll('[data-close-modal]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        successModal.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+
+    successModal.addEventListener('click', (e) => {
+      if (e.target === successModal) {
+        successModal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+  }
+
+  successModal.classList.add('active');
+  document.body.style.overflow = 'hidden';
 }
 
 function showFormStatus(toastElement, message, type) {

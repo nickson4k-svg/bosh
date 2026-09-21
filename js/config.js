@@ -23,10 +23,6 @@ window.SITE_CONFIG = {
     weekends: "Нд: 10:00 – 17:00 (черговий режим)",
     statusText: "Прийом викликів: на зв'язку щодня"
   },
-  telegram: {
-    botToken: "8768247342:AAHJcR4m_z7AjmJdKoW0IbVCc7cL4mLPlxo",
-    chatId: "-5310506440" // Перевірена тестова група
-  },
   pricing: {
     diagnosticsHome: 250, // Інструментальна діагностика від 250 грн
     diagnosticsOnly: 350,
