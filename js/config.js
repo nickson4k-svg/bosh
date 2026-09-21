@@ -8,18 +8,17 @@ window.SITE_CONFIG = {
     tagline: "Спеціалізований сервісний центр побутової техніки",
     badge: "НЕЗАЛЕЖНИЙ СЕРВІС",
     city: "Київ",
-    address: "м. Київ, бульвар Вацлава Гавела, 16",
-    mapUrl: "https://maps.google.com/?q=50.43685,30.41369"
+    address: "м. Київ, пр. Перемоги, 5а",
+    mapUrl: "https://maps.google.com/?q=50.4475,30.4850"
   },
   contacts: {
-    // [Заглушка: номер буде вказано після надання]
-    phonePrimary: "+38 (0XX) XXX-XX-XX",
-    phonePrimaryRaw: "",
-    phoneSecondary: "+38 (0XX) XXX-XX-XX",
-    phoneSecondaryRaw: "",
+    phonePrimary: "+38 (068) 824-95-27",
+    phonePrimaryRaw: "+380688249527",
+    phoneSecondary: "+38 (068) 824-95-27",
+    phoneSecondaryRaw: "+380688249527",
     telegramUsername: "Hitech_00",
     telegramDirectLink: "https://t.me/Hitech_00",
-    viberLink: "#"
+    viberLink: "viber://chat?number=%2B380688249527"
   },
   schedule: {
     weekdays: "Пн–Сб: 08:30 – 20:00",
